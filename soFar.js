@@ -163,3 +163,22 @@ const mapStateToProps = (state) => {
   }
   return newObj;
 }
+
+// MAP DISPATCH TO PROPS
+
+const addMessage = (message) => {
+  return {
+    type: 'ADD',
+    message: message
+  }
+};
+
+// change code below this line
+const mapDispatchToProps = (dispatch) => {
+    const newObj = {
+        submitNewMessage: function(message) {
+            dispatch(addMessage(message));
+        }
+    }
+    return newObj;
+}
