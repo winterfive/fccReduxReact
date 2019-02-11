@@ -1,3 +1,5 @@
+// Manage state locally
+
 class DisplayMessages extends React.Component {
   constructor(props) {
     super(props);
@@ -36,3 +38,29 @@ class DisplayMessages extends React.Component {
     );
   }
 };
+
+// Extract state logic
+
+const ADD = 'ADD';
+
+const addMessage = (message) => {
+  return {
+    type: 'ADD',
+    message: message
+  }
+}
+
+const messageReducer = (previousState, action) => {
+  let newArr = [...previousState, action.message];
+  return newArr;
+}
+
+let store = {
+  state: [],
+  getState: () => store.state,
+  dispatch: (action) => {
+    if (action.type === ADD) {
+      store.state = messageReducer(store.state, action);
+    }
+  }
+}
