@@ -139,7 +139,6 @@ class DisplayMessages extends React.Component {
 const Provider = ReactRedux.Provider;
 
 class AppWrapper extends React.Component {
-  // render the Provider here
   constructor(props) {
       super(props);
   }
@@ -151,5 +150,16 @@ class AppWrapper extends React.Component {
         </Provider>
       )    
   }  
-  // change code above this line
 };
+
+// MAP STATE TO PROPS
+
+const state = [];
+
+// change code below this line
+const mapStateToProps = (state) => {
+  const newObj = {
+    messages: state
+  }
+  return newObj;
+}
