@@ -217,3 +217,20 @@ class Presentational extends React.Component {
 
 const connect = ReactRedux.connect;
 const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(Presentational)
+
+// DEFINING CONTAINER COMPONENT
+
+const Container = connect(mapStateToProps, mapDispatchToProps)(Presentational);
+
+
+class AppWrapper extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <Provider store={store}><Container/></Provider>
+    )
+    return (null);
+  }
+};
